@@ -19,8 +19,16 @@ $(document).ready(function() {
 
 	// Handle browser's back and forward features
 	$(window).on('popstate', function(event) {
-		history.pushState(null, null, '');
 		inDescription ? returnToMenu() : redirectToHome();
+
+		//No forward feature
+		history.pushState(null, null, '');
+
+		// if (event.originalEvent.state === null) {
+		// 	inDescription ? returnToMenu() : redirectToHome();
+		// } else {
+		// 	inDescription ? goToMenu() : goToPage(event.originalEvent.state.page);
+		// }
 	});
 
 });
@@ -38,7 +46,8 @@ function goToPage(destination) {
 }
 
 function toggleInDescription() {
-	inDescription = inDescription ? false:true;
+	inDescription = !inDescription;
+	console.log("current state (from toggle): " + history.state);
 }
 
 function redirectToHome() {
