@@ -35,14 +35,14 @@ ul {
 
 li {
 	list-style: none;
-	font-size: calc(12px + 1.2vmax);
+	color: black;
 	padding: 1vmax;
 }
 
 li:hover, li:focus {
 	cursor: pointer;
 	color: rgba(20, 20, 20, 0.5);
-	text-shadow: 0 0 2px rgba(255, 0, 0, 0.6);
+	text-shadow: 0 0 2px rgba(255, 0, 0, 0.8);
 }
 
 .midbar {
@@ -68,6 +68,11 @@ li:hover, li:focus {
 	font-size: 4vmax;
 }
 
+#title:hover {
+	cursor: pointer;
+	text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
 .menu {
 	left: 0%;
 	top: 0%;
@@ -79,6 +84,7 @@ li:hover, li:focus {
 	margin: auto;
 	position: absolute;
 	cursor: default;
+	overflow: hidden;
 
 	animation-name: slide-in-left;
 	animation-delay: 3s;
@@ -88,22 +94,37 @@ li:hover, li:focus {
 	visibility: hidden;	
 }
 
-.content {
-	width: 50vmax;
-	height: 90vh;
-	margin: auto;
-	position: absolute;
-}
-
-.backbutton {
-	color: rgba(60, 60, 60, 0.8);
-	text-align: center;
+.itemTitle {
 	font-size: calc(12px + 1.2vmax);
 }
 
-.return:hover {
-	color: rgba(255, 20, 20, 0.8);
-	cursor: pointer;
+.itemSubtitle {
+	font-size: calc(6px + 1.2vmax);
+	color: rgba(20, 20, 20, 0.8);
+}
+
+.page {
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	margin: auto;
+	justify-content: center;
+	align-items: center;
+	cursor: default;
+	overflow: auto;
+}
+
+.content {
+	width: 50vmax;
+	max-width: 100vw;
+	height: 90vh;
+	max-height: 100vh;
+	position: absolute;
+
+	margin-top: 2vmax;
+	margin-bottom: 2vmax;
 }
 
 .projtitle {
@@ -121,18 +142,20 @@ li:hover, li:focus {
 	line-height: 1.6;
 }
 
-.page {
-	top: 0%;
-	left: 0%;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	margin: auto;
-	justify-content: center;
-	align-items: center;
-	cursor: default;
+.backbutton {
+	color: rgba(60, 60, 60, 0.8);
+	text-align: center;
+	font-size: calc(12px + 1.2vmax);
 }
 
+.return {
+	outline: thin solid rgb(60, 60, 60, 0.5);
+}
+
+.return:hover {
+	color: rgba(255, 20, 20, 0.8);
+	cursor: pointer;
+}
 #reconstruct {
 	opacity: 0;
 	display: none;
@@ -191,13 +214,26 @@ li:hover, li:focus {
 @keyframes blurfadeout {
 	from {
 		color: rgb(20, 20, 20);
-		display: flex;
-		text-shadow: 0 0 0px rgba(0, 0, 0, 0.23);
+		visibility: visible;
+		text-shadow: 0 0 0px rgba(0, 0, 0, 0.5);
 	}
 	to {
 		color: transparent;
-		display: none;
+		visibility: hidden;
 		text-shadow: 0 0 200px rgba(0, 0, 0, 0);
+	}
+}
+
+@keyframes blurfadein {
+	from {
+		color: transparent;
+		visibility: hidden;
+		text-shadow: 0 0 200px rgba(0, 0, 0, 0);
+	}
+	to {
+		color: rgb(20, 20, 20);
+		visibility: visible;
+		text-shadow: 0 0 0px rgba(0, 0, 0, 0.5);
 	}
 }
 
