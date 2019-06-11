@@ -1,5 +1,7 @@
 var inDescription = false;
 var titleVisited = true;
+var statecount = 1;
+var home = false;
 history.pushState(null, null, '');
 
 $(document).ready(function() {
@@ -25,10 +27,16 @@ $(document).ready(function() {
 
 	// Handle browser's back and forward features
 	$(window).on('popstate', function(event) {
-		inDescription ? returnToMenu() : redirectToHome();
+		//if backing from home, imitate the real back button
+		if (home) {
+			history.back(statecount*(-1));
+		} else {
+			inDescription ? returnToMenu() : redirectToHome();
+			history.pushState(null, null, '');
+			statecount += 1;
+		}
 
 		//No forward feature
-		history.pushState(null, null, '');
 
 		// if (event.originalEvent.state === null) {
 		// 	inDescription ? returnToMenu() : redirectToHome();
@@ -56,11 +64,13 @@ function toggleInDescription() {
 }
 
 function redirectToHome() {
-	 $(".menu").css({'animation-name': 'slide-out-right', 'animation-delay': '0s', 'animation-duration': '1s'});
-	 $(".midbar").css({'visibility': 'hidden', 'animation-name': 'blurfadein', 'animation-delay': '0.3s', 'animation-duration': '1.5s'});
+	$(".menu").css({'animation-name': 'slide-out-right', 'animation-delay': '0s', 'animation-duration': '1s'});
+	$(".midbar").css({'visibility': 'hidden', 'animation-name': 'blurfadein', 'animation-delay': '0.3s', 'animation-duration': '1.5s'});
+	home = true;
 }
 
 function goToMenu() {
 	$(".midbar").css({'animation-name': 'blurfadeout', 'animation-delay': '0s', 'animation-duration': '1.5s'});
 	$(".menu").css({'animation-name': 'slide-in-left', 'animation-delay': '1.5s', 'animation-duration': '1s'});
+	home = false;
 }
