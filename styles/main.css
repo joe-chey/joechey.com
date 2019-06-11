@@ -282,5 +282,6 @@ li:hover, li:focus {
 		transform: translateX(50%);
 		opacity: 0;
 		visibility: hidden;
+		display: none;
 	}
 }

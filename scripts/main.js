@@ -17,6 +17,12 @@ $(document).ready(function() {
 		returnToMenu();
 	});
 
+	$(".page").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+		if ($(this).css("animation-name").substring(6, 9) === 'out') {
+			$(this).css({'display':'none'});
+		}
+	})
+
 	// Handle browser's back and forward features
 	$(window).on('popstate', function(event) {
 		inDescription ? returnToMenu() : redirectToHome();
