@@ -31,6 +31,7 @@ a:hover {
 
 ul {
 	text-align: center;
+	padding: 0;
 }
 
 li {
@@ -61,7 +62,7 @@ li:hover, li:focus {
 	animation-name: blurfadeout;
 	animation-delay:1.5s;
 	animation-duration: 1.5s;
-	animation-fill-mode: forwards;
+	animation-fill-mode: both;
 }
 
 #title {
@@ -83,14 +84,13 @@ li:hover, li:focus {
 	align-items:center;
 	margin: auto;
 	position: absolute;
-	cursor: default;
 	overflow: hidden;
 
 	animation-name: slide-in-left;
 	animation-delay: 3s;
 	animation-duration: 1s;
 	animation-timing-function: cubic-bezier(0.24, 0.86, 0.31, 0.97);
-	animation-fill-mode: forwards;
+	animation-fill-mode: both;
 	visibility: hidden;	
 }
 
@@ -121,14 +121,12 @@ li:hover, li:focus {
 	max-width: 90vw;
 	height: 90vh;
 	position: absolute;
-
-	margin-top: 2vmax;
-	margin-bottom: 2vmax;
 }
 
 .projtitle {
 	font-size: calc(12px + 1.2vmax);
 	color: rgba(255, 20, 20, 0.8);
+	padding-top: 2vmax;
 }
 
 .subtitle {
@@ -145,6 +143,7 @@ li:hover, li:focus {
 	color: rgba(60, 60, 60, 0.8);
 	text-align: center;
 	font-size: calc(12px + 1.2vmax);
+	padding-bottom: 3vmax;
 }
 
 .return:hover {
@@ -282,6 +281,5 @@ li:hover, li:focus {
 		transform: translateX(50%);
 		opacity: 0;
 		visibility: hidden;
-		display: none;
 	}
 }
