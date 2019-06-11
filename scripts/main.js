@@ -17,8 +17,8 @@ $(document).ready(function() {
 		returnToMenu();
 	});
 
+	// Handle browser's back and forward features
 	$(window).on('popstate', function(event) {
-		var state = event.originalEvent.state;
 		history.pushState(null, null, '');
 		inDescription ? returnToMenu() : redirectToHome();
 	});

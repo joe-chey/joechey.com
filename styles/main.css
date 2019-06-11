@@ -54,7 +54,7 @@ li:hover, li:focus {
 	display: flex;
 	justify-content: center;
 	align-items: center;	
-	margin:auto;	
+	margin: auto;	
 	position: absolute;
 	cursor: default;
 	color:rgb(20, 20, 20);
@@ -65,7 +65,7 @@ li:hover, li:focus {
 }
 
 #title {
-	font-size: 4vmax;
+	font-size: calc(16px + 3vmax);
 }
 
 #title:hover {
@@ -112,15 +112,14 @@ li:hover, li:focus {
 	margin: auto;
 	justify-content: center;
 	align-items: center;
-	cursor: default;
+	position: absolute;
 	overflow: auto;
 }
 
 .content {
 	width: 50vmax;
-	max-width: 100vw;
+	max-width: 90vw;
 	height: 90vh;
-	max-height: 100vh;
 	position: absolute;
 
 	margin-top: 2vmax;
@@ -146,10 +145,6 @@ li:hover, li:focus {
 	color: rgba(60, 60, 60, 0.8);
 	text-align: center;
 	font-size: calc(12px + 1.2vmax);
-}
-
-.return {
-	outline: thin solid rgb(60, 60, 60, 0.5);
 }
 
 .return:hover {
