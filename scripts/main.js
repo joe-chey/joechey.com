@@ -47,7 +47,6 @@ function goToPage(destination) {
 
 function toggleInDescription() {
 	inDescription = !inDescription;
-	console.log("current state (from toggle): " + history.state);
 }
 
 function redirectToHome() {
