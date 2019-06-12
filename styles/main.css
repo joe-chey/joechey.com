@@ -211,25 +211,25 @@ li:hover .itemTitle {
 /*Title animation*/
 @keyframes blurfadeout {
 	from {
-		color: rgb(20, 20, 20);
+		color: rgb(20, 20, 20, 0.8);
 		visibility: visible;
 		text-shadow: 0 0 0px rgba(0, 0, 0, 0.5);
 	}
 	to {
-		color: transparent;
+		color: rgba(20, 20, 20, 0);
 		visibility: hidden;
-		text-shadow: 0 0 200px rgba(0, 0, 0, 0);
+		text-shadow: 0 0 50px rgba(0, 0, 0, 0);
 	}
 }
 
 @keyframes blurfadein {
 	from {
-		color: transparent;
+		color: rgba(20, 20, 20, 0);
 		visibility: hidden;
-		text-shadow: 0 0 200px rgba(255, 20, 20, 0);
+		text-shadow: 0 0 50px rgba(255, 20, 20, 0);
 	}
 	to {
-		color: rgb(20, 20, 20);
+		color: rgb(20, 20, 20, 0.8);
 		visibility: visible;
 		text-shadow: 0 0 0px rgba(255, 20, 20, 0.5);
 	}
