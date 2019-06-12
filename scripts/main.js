@@ -12,7 +12,8 @@ $(document).ready(function() {
 	})
 
 	$("li").click(function() {
-		goToPage("#" + this.id.substring(5));
+		let destination = this.id.substring(5);
+		goToPage(destination);
 	})
 	
 	$(".return").click(function() {
@@ -55,7 +56,7 @@ function returnToMenu() {
 
 function goToPage(destination) {
 	$(".menu").css({'animation-name': 'slide-out-left', 'animation-delay': '0s', 'animation-duration': '1s'});
-	$(destination).css({'display': 'flex', 'animation-name': 'slide-in-left', 'animation-delay': '0.3s', 'animation-duration': '1s'});
+	$("#" + destination).css({'display': 'flex', 'animation-name': 'slide-in-left', 'animation-delay': '0.3s', 'animation-duration': '1s'});
 	toggleInDescription();
 }
 
