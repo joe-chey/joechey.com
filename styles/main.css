@@ -163,13 +163,6 @@ li:hover .itemTitle {
 	animation-fill-mode: forwards;
 }
 
-.reconstructVideo {
-	width: 420;
-	max-width: 80vw;
-	height: 315;
-	max-height: 80vh;
-}
-
 #kineticsound {
 	opacity: 0;
 	display: none;
