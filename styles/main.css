@@ -37,7 +37,7 @@ ul {
 li {
 	list-style: none;
 	color: black;
-	padding: 12px;
+	padding: calc(6px + 0.6vmax);
 }
 
 li:hover {
@@ -97,6 +97,23 @@ li:hover .itemTitle {
 	animation-fill-mode: both;
 	visibility: hidden;	
 }
+
+/*For possible font size adjustments*/
+/*@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) {
+}
+
+@media screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1200px) {
+}
+
+@media screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 850px) {
+}
+*/
 
 .itemTitle {
 	font-size: calc(12px + 1.2vmax);
