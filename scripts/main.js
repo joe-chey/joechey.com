@@ -1,8 +1,12 @@
 var inDescription = false;
-var titleVisited = true;
-var statecount = 1;
 var home = false;
-history.pushState(null, null, '');
+var popstate = false;
+var currstate = 1;
+var statecount_current = 2;
+var statecount_total = 2;
+
+history.pushState(createState(0, '.home'), '.home', '');//home
+history.pushState(createState(1, '.menu'), '.menu', '');//menu
 
 $(document).ready(function() {
 	$("body").fadeIn(1600);
@@ -24,26 +28,31 @@ $(document).ready(function() {
 		if ($(this).css("animation-name").substring(6, 9) === 'out') {
 			$(this).css({'display':'none'});
 		}
-	})
+	});
 
 	// Handle browser's back and forward features
 	$(window).on('popstate', function(event) {
-		//if backing from home, imitate the real back button
-		if (home) {
-			history.back(statecount*(-1));
-		} else {
-			inDescription ? returnToMenu() : redirectToHome();
-			history.pushState(null, null, '');
-			statecount += 1;
+		//let routing functions know not to create new states for the visit
+		popstate = true;
+
+		//no history before
+		if (event.originalEvent.state === null || ((event.originalEvent.state.stateval < currstate) && home)) {
+			history.go((-1)*statecount_current);
 		}
 
-		//No forward feature
+		let newstate = event.originalEvent.state.stateval;
+		//browser went backwards (i.e., newstate = currstate- 1)
+		if (newstate < currstate) {
+			statecount_current -= 1;
+			inDescription ? returnToMenu() : redirectToHome();
+		} 
+		//browser went forward (i.e., newstate = currstate + 1)
+		else {
+			statecount_current += 1;
+			home ? goToMenu() : goToPage(event.originalEvent.state.destination);
+		}
+		currstate = newstate;
 
-		// if (event.originalEvent.state === null) {
-		// 	inDescription ? returnToMenu() : redirectToHome();
-		// } else {
-		// 	inDescription ? goToMenu() : goToPage(event.originalEvent.state.page);
-		// }
 	});
 
 });
@@ -52,26 +61,57 @@ function returnToMenu() {
 	$(".page").css({'animation-name': 'slide-out-right', 'animation-delay': '0s', 'animation-duration': '1s'});
 	$(".menu").css({'animation-name': 'slide-in-right', 'animation-delay': '0.3s', 'animation-duration': '1s'});
 	toggleInDescription();
+	manageHistory(".menu");
 }
 
 function goToPage(destination) {
 	$(".menu").css({'animation-name': 'slide-out-left', 'animation-delay': '0s', 'animation-duration': '1s'});
 	$("#" + destination).css({'display': 'flex', 'animation-name': 'slide-in-left', 'animation-delay': '0.3s', 'animation-duration': '1s'});
 	toggleInDescription();
+	manageHistory(destination);
+}
+
+function redirectToHome() {
+	$(".menu").css({'animation-name': 'slide-out-right', 'animation-delay': '0s', 'animation-duration': '1s'});
+	$(".midbar").css({'visibility': 'hidden', 'animation-name': 'blurfadein', 'animation-delay': '0.3s', 'animation-duration': '1.5s'});
+	toggleHome();
+}
+
+function goToMenu() {
+	$(".midbar").css({'animation-name': 'blurfadeout', 'animation-delay': '0s', 'animation-duration': '1.5s'});
+	$(".menu").css({'animation-name': 'slide-in-left', 'animation-delay': '1.5s', 'animation-duration': '1s'});
+	toggleHome();
+	manageHistory('.menu');
 }
 
 function toggleInDescription() {
 	inDescription = !inDescription;
 }
 
-function redirectToHome() {
-	$(".menu").css({'animation-name': 'slide-out-right', 'animation-delay': '0s', 'animation-duration': '1s'});
-	$(".midbar").css({'visibility': 'hidden', 'animation-name': 'blurfadein', 'animation-delay': '0.3s', 'animation-duration': '1.5s'});
-	home = true;
+function toggleHome() {
+	home = !home;
 }
 
-function goToMenu() {
-	$(".midbar").css({'animation-name': 'blurfadeout', 'animation-delay': '0s', 'animation-duration': '1.5s'});
-	$(".menu").css({'animation-name': 'slide-in-left', 'animation-delay': '1.5s', 'animation-duration': '1s'});
-	home = false;
+function incrementState() {
+	currstate += 1;
+	return currstate;
+}
+
+function createState(val, pageinfo) {
+	let obj = {
+		'stateval': val,
+		'destination': pageinfo
+	};
+	console.log("in createState(), destination = " + pageinfo);
+	return obj;
+}
+
+function manageHistory(pageinfo) {
+	if (!popstate) {
+		history.pushState(createState(incrementState(), pageinfo), pageinfo, '');
+		statecount_total += 1;
+		statecount_current = statecount_total;
+	} else {
+		popstate = false;
+	}
 }
