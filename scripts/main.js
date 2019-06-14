@@ -36,7 +36,16 @@ $(document).ready(function() {
 		popstate = true;
 
 		//no history before
-		if (event.originalEvent.state === null || ((event.originalEvent.state.stateval < currstate) && home)) {
+		if (event.originalEvent.state === null) {
+			console.log("backing from home (null)");
+			console.log("statecount_current: " + statecount_current);
+			console.log("statecount_total: " + statecount_total);
+			history.go((-1)*statecount_current);
+		} else if ((event.originalEvent.state.stateval < currstate) && home) {
+			console.log("backing from home (not null)");
+			console.log("statecount_current: " + statecount_current);
+			console.log("statecount_total: " + statecount_total);
+			console.log("state: " + event.originalEvent.state);
 			history.go((-1)*statecount_current);
 		}
 
@@ -44,11 +53,19 @@ $(document).ready(function() {
 		//browser went backwards (i.e., newstate = currstate- 1)
 		if (newstate < currstate) {
 			statecount_current -= 1;
+			console.log("backing from menu or page");
+			console.log("statecount_current: " + statecount_current);
+			console.log("statecount_total: " + statecount_total);
+			console.log("state: " + event.originalEvent.state);
 			inDescription ? returnToMenu() : redirectToHome();
 		} 
 		//browser went forward (i.e., newstate = currstate + 1)
 		else {
 			statecount_current += 1;
+			console.log("going forward");
+			console.log("statecount_current: " + statecount_current);
+			console.log("statecount_total: " + statecount_total);
+			console.log("state: " + event.originalEvent.state);
 			home ? goToMenu() : goToPage(event.originalEvent.state.destination);
 		}
 		currstate = newstate;
@@ -113,4 +130,7 @@ function manageHistory(pageinfo) {
 	} else {
 		popstate = false;
 	}
+	console.log("in manageHistory");
+			console.log("statecount_current: " + statecount_current);
+			console.log("statecount_total: " + statecount_total);
 }
