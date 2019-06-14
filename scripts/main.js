@@ -102,7 +102,6 @@ function createState(val, pageinfo) {
 		'stateval': val,
 		'destination': pageinfo
 	};
-	console.log("in createState(), destination = " + pageinfo);
 	return obj;
 }
 
