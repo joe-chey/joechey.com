@@ -50,12 +50,18 @@ $(document).ready(function() {
 				//forward
 				home ? goToMenu() : goToPage(destination);
 			} else {
-				//back from menu or page
-				inDescription ? returnToMenu() : redirectToHome();
+				//back from menu to page
+				if (destination !== null && destination.substring(0, 1) !== '.') {
+					goToPage(destination);
+				} else {
+				//back from page to menu, or from menu to home
+					inDescription ? returnToMenu() : redirectToHome();
+				}
 			}
 			currstate = newstate;
 		}
 	});
+
 });
 
 function returnToMenu() {
