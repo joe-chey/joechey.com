@@ -47,8 +47,16 @@ $(document).ready(function() {
 				//back from home: exit website
 				history.go((-1) * statepos);
 			} else if (newstate > currstate) {
-				//forward
-				home ? goToMenu() : goToPage(destination);
+				//forward from home to menu
+				if (home) {
+					goToMenu();
+				} else if (destination === '.menu') {
+				//forward from page to menu
+					returnToMenu();
+				} else {
+				//forward from menu to page
+					goToPage(destination);
+				}
 			} else {
 				//back from menu to page
 				if (destination.substring(0, 1) !== '.') {
