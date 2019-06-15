@@ -2,11 +2,10 @@ var inDescription = false;
 var home = false;
 var popstate = false;
 var currstate = 1;
-var statecount_current = 2;
 var statecount_total = 2;
 
-history.pushState(createState(0, '.home'), '.home', '');//home
-history.pushState(createState(1, '.menu'), '.menu', '');//menu
+history.pushState(createState(0, '.home', 1), '.home', '');//home
+history.pushState(createState(1, '.menu', 2), '.menu', '');//menu
 
 $(document).ready(function() {
 	$("body").fadeIn(1600);
@@ -35,43 +34,28 @@ $(document).ready(function() {
 		//let routing functions know not to create new states for the visit
 		popstate = true;
 
-		//no history before
 		if (event.originalEvent.state === null) {
-			console.log("backing from home (null)");
-			console.log("statecount_current: " + statecount_current);
-			console.log("statecount_total: " + statecount_total);
-			history.go((-1)*statecount_current);
-		} else if ((event.originalEvent.state.stateval < currstate) && home) {
-			console.log("backing from home (not null)");
-			console.log("statecount_current: " + statecount_current);
-			console.log("statecount_total: " + statecount_total);
-			console.log("state: " + event.originalEvent.state);
-			history.go((-1)*statecount_current);
-		}
+			//back from home: no history before
+			history.back();
+		} else {
+			let state_destination = event.originalEvent.state;
+			let newstate = state_destination.stateval;
+			let destination = state_destination.destination;
+			let statepos = state_destination.statecount;
 
-		let newstate = event.originalEvent.state.stateval;
-		//browser went backwards (i.e., newstate = currstate- 1)
-		if (newstate < currstate) {
-			statecount_current -= 1;
-			console.log("backing from menu or page");
-			console.log("statecount_current: " + statecount_current);
-			console.log("statecount_total: " + statecount_total);
-			console.log("state: " + event.originalEvent.state);
-			inDescription ? returnToMenu() : redirectToHome();
-		} 
-		//browser went forward (i.e., newstate = currstate + 1)
-		else {
-			statecount_current += 1;
-			console.log("going forward");
-			console.log("statecount_current: " + statecount_current);
-			console.log("statecount_total: " + statecount_total);
-			console.log("state: " + event.originalEvent.state);
-			home ? goToMenu() : goToPage(event.originalEvent.state.destination);
+			if ((newstate < currstate) && home) {
+				//back from home: exit website
+				history.go((-1) * statepos);
+			} else if (newstate > currstate) {
+				//forward
+				home ? goToMenu() : goToPage(destination);
+			} else {
+				//back from menu or page
+				inDescription ? returnToMenu() : redirectToHome();
+			}
+			currstate = newstate;
 		}
-		currstate = newstate;
-
 	});
-
 });
 
 function returnToMenu() {
@@ -114,23 +98,20 @@ function incrementState() {
 	return currstate;
 }
 
-function createState(val, pageinfo) {
+function createState(val, pageinfo, count) {
 	let obj = {
 		'stateval': val,
-		'destination': pageinfo
+		'destination': pageinfo,
+		'statecount': count
 	};
 	return obj;
 }
 
 function manageHistory(pageinfo) {
 	if (!popstate) {
-		history.pushState(createState(incrementState(), pageinfo), pageinfo, '');
 		statecount_total += 1;
-		statecount_current = statecount_total;
+		history.pushState(createState(incrementState(), pageinfo, statecount_total), pageinfo, '');
 	} else {
 		popstate = false;
 	}
-	console.log("in manageHistory");
-			console.log("statecount_current: " + statecount_current);
-			console.log("statecount_total: " + statecount_total);
 }
