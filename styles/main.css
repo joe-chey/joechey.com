@@ -71,6 +71,8 @@ li:hover .itemTitle {
 
 #title {
 	font-size: calc(16px + 3vmax);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 #title:hover {
