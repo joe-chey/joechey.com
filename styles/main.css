@@ -160,6 +160,8 @@ li:hover .itemTitle {
 .description {
 	font-size: calc(8px + 1.2vmax);
 	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .backbutton {
@@ -167,6 +169,8 @@ li:hover .itemTitle {
 	text-align: center;
 	font-size: calc(12px + 1.2vmax);
 	padding-bottom: 3vmax;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .return:hover {
