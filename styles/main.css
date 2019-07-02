@@ -214,15 +214,6 @@ li:hover .itemTitle {
 	animation-fill-mode: forwards;
 }
 
-#speechcontest {
-	opacity: 0;
-	display: none;
-	visibility: hidden;
-	position: absolute;
-	animation-timing-function: cubic-bezier(0.24, 0.86, 0.31, 0.97);
-	animation-fill-mode: forwards;
-}
-
 /*Animations*/
 
 /*Title animation*/
