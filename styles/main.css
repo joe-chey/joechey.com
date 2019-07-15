@@ -127,19 +127,71 @@ li:hover .itemTitle {
 	color: rgba(20, 20, 20, 0.8);
 }
 
-.background-container {
-	top: 0%;
+.background {
 	left: 0%;
+	top: 0%;
 	width: 100%;
 	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: auto;
-	position: absolute;
 	overflow: hidden;
+	z-index: -1;
+	position: absolute;
+
+	/* Background image is centered vertically and horizontally at all times */
+	background-position: center center;
+	  
+	/* Background image doesn't tile */
+	background-repeat: no-repeat;
+	  
+	/* Background image is fixed in the viewport so that it doesn't move when
+	the content's height is greater than the image's height */
+	background-attachment: fixed;
+	  
+	/* This is what makes the background image rescale based
+	on the container's size */
+    -webkit-background-size: cover; /* For WebKit*/
+    -moz-background-size: cover;    /* Mozilla*/
+    -o-background-size: cover;      /* Opera*/
+    background-size: cover;         /* Generic*/	  
+
+	/* Set a background color that will be displayed
+	while the background image is loading */
+	background-color: rgb(248, 248, 255);
+
 }
 
+#background-about {
+	background-image: url(images/about.jpg);
+	opacity: 0;
+	display: none;
+	animation-fill-mode: forwards;
+	animation-timing-function: linear;
+}
+
+#background-kineticsound {
+	background-image: url(images/kineticsound.jpg);
+	opacity: 0;
+	display: none;
+	animation-fill-mode: forwards;
+	animation-timing-function: linear;
+}
+
+#background-reconstruct {
+	background-image: url(images/reconstruct.jpg);
+	opacity: 0;
+	display: none;
+	animation-fill-mode: forwards;
+	animation-timing-function: linear;
+}
+
+#background-cultural {
+	background-image: url(images/cultural.jpg);
+	opacity: 0;
+	display: none;
+	animation-fill-mode: forwards;
+	animation-timing-function: linear;
+}
+
+/*
 .background {
 	max-width: 100%;
 	height: auto;
@@ -178,7 +230,7 @@ li:hover .itemTitle {
 	animation-fill-mode: forwards;
 	animation-timing-function: linear;
 	position: absolute;
-}
+}*/
 
 .page {
 	top: 0%;
@@ -304,13 +356,13 @@ li:hover .itemTitle {
 		opacity: 0;
 	}
 	to {
-		opacity: 0.2;
+		opacity: 0.15;
 	}
 }
 
 @keyframes fade-out {
 	from {
-		opacity: 0.2;
+		opacity: 0.15;
 		visibility: visible;
 	}
 	to {
