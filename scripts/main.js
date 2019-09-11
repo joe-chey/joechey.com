@@ -29,6 +29,14 @@ $(document).ready(function() {
 		}
 	});
 
+	$("li").hover(function() {
+		let destination = this.id.substring(5);
+		$("#background-" + destination).css({'animation-name': 'fade-in', 'animation-delay': '0s', 'animation-duration': '0.7s'});
+	}, function() {
+		let destination = this.id.substring(5);
+		$("#background-" + destination).css({'animation-name': 'fade-out', 'animation-delay': '0s', 'animation-duration': '0.5s'});
+	});
+
 	// Handle browser's back and forward features
 	$(window).on('popstate', function(event) {
 		//let routing functions know not to create new states for the visit
@@ -74,7 +82,7 @@ $(document).ready(function() {
 
 function returnToMenu() {
 	$(".page").css({'animation-name': 'slide-out-right', 'animation-delay': '0s', 'animation-duration': '1s'});
-//	$(".background").css({'animation-name': 'fade-out', 'animation-delay': '0s', 'animation-duration': '0.5s'});
+	// $(".background").css({'animation-name': 'fade-out', 'animation-delay': '0s', 'animation-duration': '0.5s'});
 	$(".menu").css({'animation-name': 'slide-in-right', 'animation-delay': '0.3s', 'animation-duration': '1s'});
 	toggleInDescription();
 	manageHistory(".menu");
@@ -82,7 +90,7 @@ function returnToMenu() {
 
 function goToPage(destination) {
 	$(".menu").css({'animation-name': 'slide-out-left', 'animation-delay': '0s', 'animation-duration': '1s'});
-//	$("#background-" + destination).css({'display': 'block', 'animation-name': 'fade-in', 'animation-delay': '0s', 'animation-duration': '0.7s'});
+	// $("#background-" + destination).css({'display': 'block', 'animation-name': 'fade-in', 'animation-delay': '0s', 'animation-duration': '0.7s'});
 	$("#" + destination).css({'display': 'flex', 'animation-name': 'slide-in-left', 'animation-delay': '0.3s', 'animation-duration': '1s'});
 	toggleInDescription();
 	manageHistory(destination);

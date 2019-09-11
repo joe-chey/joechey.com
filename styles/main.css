@@ -161,76 +161,39 @@ li:hover .itemTitle {
 
 #background-about {
 	background-image: url(images/about.jpg);
+	display: block;
 	opacity: 0;
-	display: none;
+	visibility: hidden;
 	animation-fill-mode: forwards;
 	animation-timing-function: linear;
 }
 
 #background-kineticsound {
 	background-image: url(images/kineticsound.jpg);
+	display: block;
 	opacity: 0;
-	display: none;
+	visibility: hidden;
 	animation-fill-mode: forwards;
 	animation-timing-function: linear;
 }
 
 #background-reconstruct {
 	background-image: url(images/reconstruct.jpg);
+	display: block;
 	opacity: 0;
-	display: none;
+	visibility: hidden;
 	animation-fill-mode: forwards;
 	animation-timing-function: linear;
 }
 
 #background-cultural {
 	background-image: url(images/cultural.jpg);
+	display: block;
 	opacity: 0;
-	display: none;
+	visibility: hidden;
 	animation-fill-mode: forwards;
 	animation-timing-function: linear;
 }
-
-/*
-.background {
-	max-width: 100%;
-	height: auto;
-	position: absolute;
-	overflow: hidden;
-	z-index: 1;
-}
-
-#background-about {
-	opacity: 0;
-	display: none;
-	animation-fill-mode: forwards;
-	animation-timing-function: linear;
-	position: absolute;
-}
-
-#background-kineticsound {
-	opacity: 0;
-	display: none;
-	animation-fill-mode: forwards;
-	animation-timing-function: linear;
-	position: absolute;
-}
-
-#background-reconstruct {
-	opacity: 0;
-	display: none;
-	animation-fill-mode: forwards;
-	animation-timing-function: linear;
-	position: absolute;
-}
-
-#background-cultural {
-	opacity: 0;
-	display: none;
-	animation-fill-mode: forwards;
-	animation-timing-function: linear;
-	position: absolute;
-}*/
 
 .page {
 	top: 0%;
@@ -354,9 +317,11 @@ li:hover .itemTitle {
 @keyframes fade-in {
 	from {
 		opacity: 0;
+		visibility: hidden;
 	}
 	to {
 		opacity: 0.15;
+		visibility: visible;
 	}
 }
 
