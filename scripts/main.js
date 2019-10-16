@@ -29,6 +29,7 @@ $(document).ready(function() {
 		}
 	});
 
+/*
 	$("li").hover(function() {
 		let destination = this.id.substring(5);
 		$("#background-" + destination).css({'animation-name': 'fade-in', 'animation-delay': '0s', 'animation-duration': '0.7s'});
@@ -36,6 +37,7 @@ $(document).ready(function() {
 		let destination = this.id.substring(5);
 		$("#background-" + destination).css({'animation-name': 'fade-out', 'animation-delay': '0s', 'animation-duration': '0.5s'});
 	});
+*/
 
 	// Handle browser's back and forward features
 	$(window).on('popstate', function(event) {
@@ -84,6 +86,7 @@ function returnToMenu() {
 	$(".page").css({'animation-name': 'slide-out-right', 'animation-delay': '0s', 'animation-duration': '1s'});
 	// $(".background").css({'animation-name': 'fade-out', 'animation-delay': '0s', 'animation-duration': '0.5s'});
 	$(".menu").css({'animation-name': 'slide-in-right', 'animation-delay': '0.3s', 'animation-duration': '1s'});
+
 	toggleInDescription();
 	manageHistory(".menu");
 }
@@ -92,6 +95,7 @@ function goToPage(destination) {
 	$(".menu").css({'animation-name': 'slide-out-left', 'animation-delay': '0s', 'animation-duration': '1s'});
 	// $("#background-" + destination).css({'display': 'block', 'animation-name': 'fade-in', 'animation-delay': '0s', 'animation-duration': '0.7s'});
 	$("#" + destination).css({'display': 'flex', 'animation-name': 'slide-in-left', 'animation-delay': '0.3s', 'animation-duration': '1s'});
+
 	toggleInDescription();
 	manageHistory(destination);
 }
@@ -132,10 +136,14 @@ function createState(val, pageinfo, count) {
 }
 
 function manageHistory(pageinfo) {
+	let base_url = window.location.protocol + "//" + window.location.host;
+	let toPage = (pageinfo.substring(0, 1) !== '.');
+	console.log(base_url);
 	if (!popstate) {
 		statecount_total += 1;
-		history.pushState(createState(incrementState(), pageinfo, statecount_total), pageinfo, '');
+		history.pushState(createState(incrementState(), pageinfo, statecount_total), pageinfo, toPage ? base_url + "/" + pageinfo : base_url);
 	} else {
 		popstate = false;
+		history.replaceState(createState(currstate, pageinfo, statecount_total), pageinfo, toPage ? base_url + "/" + pageinfo : base_url);
 	}
 }
