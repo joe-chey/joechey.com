@@ -216,6 +216,26 @@ li:hover .itemTitle {
 	position: absolute;
 }
 
+.linkedin_link {
+	padding: 0;
+	padding-bottom: 0;
+}
+
+.linkedin_logo {
+	vertical-align: middle;
+	min-width: 21px;
+	min-height: 21px;
+	max-width: calc(12px + 1.2vmax);
+	max-height: calc(12px + 1.2vmax);
+	border: 0;
+	margin: auto;
+	padding: 0;
+}
+
+.greyText {
+	color: rgba(40, 40, 40, 0.5);
+}
+
 .projtitle {
 	font-size: calc(12px + 1.2vmax);
 	color: rgba(255, 20, 20, 0.8);
