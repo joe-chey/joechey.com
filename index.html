@@ -14,6 +14,7 @@
 
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141919198-1"></script>
 	<script src="scripts/gtag.js"></script>
+	<script src="scripts/chart.js/dist/Chart.js"></script>
 </head>
 <body>
 	<div class="midbar">
@@ -68,8 +69,31 @@
 			<div class="projtitle">Kinetic Sound <span class="greyText"> | </span> <a href = "https://atuva.student.virginia.edu/organization/KineticSound" rel="noopener noreferrer" target="_blank">link</a></div>
 			<div class="subtitle">rebranding classical music as a genre</div>
 			<p class="description">
-				Committed to creating polished instrumental music productions for the millennials, Kinetic Sound attracted top student talents in music, design, marketing, strategy, and finance, and organized some of the most successful student-led instrumental music concerts at the University of Virginia. As I recruited and managed more than 30 cross-functional student volunteers, I gained a deep understanding of what it means to lead without authority - to help people work efficiently and joyfully to accomplish stretch goals when they have numerous other competing tasks. After gathering more than 140 students at its first concert in 2015 - just 3 months after the organization was founded with 3 members - Kinetic Sound continuously refined its priorities and strategies based on user interviews, presenting an outdoor instrumental music concert attended by over 230 student audience members in 2017.
+				This is where I learned what it means to lead without authority, build mission-driven teams, and balance short-term and long-term strategic goals. Committed to creating polished instrumental music productions for the millennials, I worked with top student talents in music, design, marketing, and strategy to continuously refine priorities and strategies based on user interviews.
 			</p>
+			<div class="chart_container">
+				<canvas id="chart_concert" width="400" height="400"></canvas>	    
+			</div>
+			<p class="description">	
+				From the beginning to the end of my leadership term, Kinetic Sound faced the same difficulties as all other student organizations on campus: its members being volunteers with primary objectives as full-time University students. By being able to recognize and address this fundamental challenge, I was able to lead the group into a successful launch of its first live classical music concert production designed for college students, attracting <a class="contentLink" href="https://youtu.be/F0fl-afxh8M" rel="noopener noreferrer" target="_blank">over 140</a> students in Fall 2015, just three months after the founding of Kinetic Sound. From there, we continued to focus on user feedback - both internal and external - and hit the record number of student audience in 2017, making it the largest student audience for any instrumental music concert production at UVA in the recent years.
+			</p>
+
+			<div class="chart_container">
+				<canvas id="chart_online" width="400" height="400"></canvas>
+			</div>
+
+			<p class="description">
+				The unexpected success with attracting college students to classical music concerts can be attributed to one key strategy that tied together the different components and talents within the organization. In using social media as the major distribution channel for visual arts products created in collaboration with the musicians, my vision was to not only bridge the conceptual gap between the audience and the less popular genre of classical music, but more importantly to deeply penetrate the social network of the student artists involved in the organization. This allowed Kinetic Sound to give a sense of ownership, community, and brand even to those not in the organization.
+			</p>
+
+			<div class="chart_container">
+				<canvas id="chart_membership" width="400" height="400"></canvas>
+			</div>
+
+			<p class="description">
+				While the number of active members was a strong indicator of performance and brand for many organizations on campus, there were some core values within members that I valued far more importantly than simply getting them to join: a demonstrated passion for creativity, a dedicated curiosity about the world and/or themselves, and personal integrity. I worked tirelessly to align the organization's objectives and interests with these members' values, and it was through these values that Kinetic Sound continued to attract top student talents at the University, cultivating its mission-focused culture that drove the growth of the organization.
+			</p>
+
 			<div class="backbutton"><span class="return">return</span></div>
 		</div>
 	</div>
@@ -79,7 +103,7 @@
 			<div class="projtitle">Re:Construct <span class="greyText"> | </span> <a href = "http://arts.virginia.edu/video-reconstruct/" rel="noopener noreferrer" target="_blank">link</a></div>
 			<div class="subtitle">communicating the abstract</div>
 			<p class="description">
-				With over 2,000 views on social media, this multidisciplinary performing arts project is a modern reinterpretation of the tradition and culture representing the University of Virginia. In addition to creating and managing the project roadmap from beginning to completion, I pitched the project on numerous occasions, including a selective <a class="contentLink" href = "https://newcityarts.org/vocation/charlottesville-soup" rel="noopener noreferrer" target="_blank">crowdfunding event</a> to secure and manage $4,000 in multiple institutional sponsorships.
+				In my final year of college, I wanted to rebrand the University's 200-year-old school song to reflect the complex layers of social and individual developments experienced by the University. In addition to creating and managing the product roadmap from beginning to completion, I pitched the idea on numerous occasions, including a selective <a class="contentLink" href = "https://newcityarts.org/vocation/charlottesville-soup" rel="noopener noreferrer" target="_blank">crowdfunding event</a> to secure and manage $4,000 in multiple institutional sponsorships.
 			</p>
 			<div class="backbutton"><span class="return">return</span></div>
 		</div>
@@ -90,7 +114,7 @@
 			<div class="projtitle" style="font-family: 'Noto Sans JP', sans-serif;">花は咲く <span class="greyText"> | </span> <a href="http://www.nhk.or.jp/ashita/english/song/" rel="noopener noreferrer" target="_blank" style="font-family: 'Quicksand'">"Flowers Will Bloom"</a></div>
 			<div class="subtitle">tapping different possibilities for value</div>
 			<p class="description">
-				In 2015, I initiated contact with a visiting calligraphy master from Japan with an inquiry regarding a public demonstration of her crafts for a Japanese culture event I was organizing. After weeks of written and in-person negotiation with the calligrapher, community members, and the event staff, I successfully curated a unique professional calligraphy performance open to public at no charge, where the calligrapher dynamically produced calligraphy pieces with the lyrics of a live song that inspired her real-time.
+				After determining that the University community was interested in authentic Japanese cultural experience, I reached out to a calligraphy master in Charlottesville, visiting from Japan. Following weeks of written and in-person negotiation with the calligrapher, local residents, and the event staff, I successfully curated and collaborated in a series of dynamic calligraphy performances open to public at no charge, where the calligrapher dynamically produced calligraphy pieces with the lyrics of a live song that inspired her real-time.
 			</p>
 			<div class="backbutton"><span class="return">return</span></div>
 		</div>
@@ -98,5 +122,6 @@
 
 	<script src="scripts/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="scripts/main.min.js"></script>
+	<script type="text/javascript" src="scripts/chart-customization.js"></script>
 </body>
 </html>
