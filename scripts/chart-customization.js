@@ -1,5 +1,6 @@
 var title_font_size = parseFloat($(".description").css("font-size"));
-var title_font_color = "#888"
+var title_font_color = "#555";
+var title_font_weight = "200";
 var ctx_concert = document.getElementById('chart_concert').getContext('2d');
 var chart_concert = new Chart(ctx_concert, {
     type: 'bar',
@@ -9,16 +10,16 @@ var chart_concert = new Chart(ctx_concert, {
             label: '# of Students Attended',
             data: [140, 130, 160, 230],
             backgroundColor: [
-                'rgba(235, 230, 49, 0.4)',
-                'rgba(235, 230, 49, 0.4)',
-                'rgba(235, 230, 49, 0.4)',
-                'rgba(235, 230, 49, 0.4)',
+                'rgba(3, 29, 133, 0.6)',
+                'rgba(3, 29, 133, 0.6)',
+                'rgba(3, 29, 133, 0.6)',
+                'rgba(3, 29, 133, 0.6)',
             ],
             borderColor: [
-                'rgba(235, 230, 49, 1)',
-                'rgba(235, 230, 49, 1)',
-                'rgba(235, 230, 49, 1)',
-                'rgba(235, 230, 49, 1)',
+                'rgba(3, 29, 133, 1)',
+                'rgba(3, 29, 133, 1)',
+                'rgba(3, 29, 133, 1)',
+                'rgba(3, 29, 133, 1)',
             ],
             borderWidth: 1
         }]
@@ -28,7 +29,7 @@ var chart_concert = new Chart(ctx_concert, {
             display: true,
             text: 'Kinetic Sound: Student Attendance in Live Concert Productions',
             fontSize: title_font_size,
-            fontFamily: 'Quicksand',
+            fontStyle: title_font_weight,
             fontColor: title_font_color
         },
         scales: {
@@ -50,18 +51,18 @@ var chart_online = new Chart(ctx_online, {
             label: '# People Reached Online (Facebook, YouTube)',
             data: [100, 1200, 1500, 6000, 3000],
             backgroundColor: [
-                'rgba(40, 11, 79, 0.6)',
-                'rgba(40, 11, 79, 0.6)',
-                'rgba(40, 11, 79, 0.6)',
-                'rgba(40, 11, 79, 0.6)',
-                'rgba(40, 11, 79, 0.6)',
+                'rgba(31, 105, 45, 0.6)',
+                'rgba(31, 105, 45, 0.6)',
+                'rgba(31, 105, 45, 0.6)',
+                'rgba(31, 105, 45, 0.6)',
+                'rgba(31, 105, 45, 0.6)',
             ],
             borderColor: [
-                'rgba(40, 11, 79, 1)',
-                'rgba(40, 11, 79, 1)',
-                'rgba(40, 11, 79, 1)',
-                'rgba(40, 11, 79, 1)',
-                'rgba(40, 11, 79, 1)',
+                'rgba(31, 105, 45, 1)',
+                'rgba(31, 105, 45, 1)',
+                'rgba(31, 105, 45, 1)',
+                'rgba(31, 105, 45, 1)',
+                'rgba(31, 105, 45, 1)',
             ],
             borderWidth: 1
         }]
@@ -69,7 +70,10 @@ var chart_online = new Chart(ctx_online, {
     options: {
         title: {
             display: true,
-            text: 'Kinetic Sound: Max Social Media Reach Per Semester'
+            text: 'Kinetic Sound: Max Social Media Reach Per Semester',
+            fontSize: title_font_size,
+            fontStyle: title_font_weight,
+            fontColor: title_font_color
         },
         scales: {
             yAxes: [{
@@ -90,11 +94,11 @@ var chart_members = new Chart(ctx_members, {
             label: '# of Active Members',
             data: [3, 10, 16, 25, 50],
             backgroundColor: [
-                'rgba(153, 51, 51, 0.7)',
-                'rgba(153, 51, 51, 0.7)',
-                'rgba(153, 51, 51, 0.7)',
-                'rgba(153, 51, 51, 0.7)',
-                'rgba(153, 51, 51, 0.7)',
+                'rgba(153, 51, 51, 0.6)',
+                'rgba(153, 51, 51, 0.6)',
+                'rgba(153, 51, 51, 0.6)',
+                'rgba(153, 51, 51, 0.6)',
+                'rgba(153, 51, 51, 0.6)',
             ],
             borderColor: [
                 'rgba(153, 51, 51, 1)',
@@ -109,7 +113,10 @@ var chart_members = new Chart(ctx_members, {
     options: {
         title: {
             display: true,
-            text: 'Kinetic Sound: Active Membership'
+            text: 'Kinetic Sound: Active Membership',
+            fontSize: title_font_size,
+            fontStyle: title_font_weight,
+            fontColor: title_font_color
         },
         scales: {
             yAxes: [{
