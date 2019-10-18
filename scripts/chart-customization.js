@@ -1,3 +1,5 @@
+var title_font_size = parseFloat($(".description").css("font-size"));
+var title_font_color = "#888"
 var ctx_concert = document.getElementById('chart_concert').getContext('2d');
 var chart_concert = new Chart(ctx_concert, {
     type: 'bar',
@@ -24,7 +26,10 @@ var chart_concert = new Chart(ctx_concert, {
     options: {
         title: {
             display: true,
-            text: 'Kinetic Sound: Student Attendance in Live Concert Productions'
+            text: 'Kinetic Sound: Student Attendance in Live Concert Productions',
+            fontSize: title_font_size,
+            fontFamily: 'Quicksand',
+            fontColor: title_font_color
         },
         scales: {
             yAxes: [{
