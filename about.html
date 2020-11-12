@@ -4,33 +4,169 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Joe Chey</title>
-	<link rel="apple-touch-icon" sizes="180x180" href="styles/favicon/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="styles/favicon/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="styles/favicon/favicon-16x16.png">
-	<link rel="manifest" href="styles/favicon/site.webmanifest">
-	<link rel="stylesheet" href="styles/main.css">
-	<link href="https://fonts.googleapis.com/css?family=Quicksand:300&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:100&display=swap" rel="stylesheet">	
-
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+	<link rel="manifest" href="../assets/favicon/site.webmanifest">
+	<!-- Google Web Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+	<!-- Material Icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141919198-1"></script>
 	<script src="scripts/gtag.js"></script>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="styles/libraries/flickity/flickity.min.css" media="screen">
+	<link rel="stylesheet" href="styles/libraries/flickity/fullscreen.css" media="screen">	
+	<link rel="stylesheet" href="styles/main.min.css">
 </head>
-<body>
-	<div class="page" id="about">
-		<div class="content">
-			<div class="projtitle">Joe Chey
-				<span class="greyText"> | </span>
-					<a class="linkedin_link" href="https://www.linkedin.com/in/joechey" rel="noopener noreferrer" target="_blank"><img class="linkedin_logo" src="styles/images/linkedin_logo.png" alt="linkedin"></a>
+<body class="project">
+	<!-- Outer wrapper -->
+	<div class="page-wrapper-outer">
+		<!-- Navigation menu -->
+		<div class="nav-menu-wrapper">
+			<div class="nav-menu menu-wrapper-outer">
+				<div class="menu-wrapper-inner">
+					<div class="menu-header">
+						<div class="name">
+							Joe Chey<span class="dot-divider"></span><a class="linkedin-link" href="https://www.linkedin.com/in/joechey" rel="noopener noreferrer" target="_blank"><img class="linkedin-icon" src="assets/images/linkedin_logo.png" alt="linkedin"></a>
+						</div>
+						<div class="close-button-container">
+							<i class="close-icon material-icons">close</i>
+						</div>
+					</div>
+
+					<div class="menu-item-container">
+						<div class="menu-item">
+							<div class="menu-item-title menu-selection-target">
+								<a href="/">Home</a>
+							</div>
+						</div>
+						<div class="menu-item">
+							<div class="menu-item-title menu-selection-target">
+								<a href="#">About me</a>
+							</div>
+						</div>
+						<div class="menu-item">
+							<div class="menu-item-title menu-selection-target">
+								<a href="/projects/redesign">Patriot Pass Redesign</a>
+							</div>
+							<div class="menu-item-subtitle menu-selection-target">
+								Adobe XD, JavaScript
+							</div>
+						</div>
+						<div class="menu-item">
+							<div class="menu-item-title menu-selection-target">
+								<a href="/projects/kineticsound">Kinetic Sound</a>
+							</div>
+							<div class="menu-item-subtitle menu-selection-target">
+								Leadership/vision (long-term project)
+							</div>
+						</div>
+						<div class="menu-item">
+							<div class="menu-item-title menu-selection-target">
+								<a href="/projects/trendboard">TrendBoard</a>
+							</div>
+							<div class="menu-item-subtitle menu-selection-target">
+								Figma, React Native, FastAPI, MongoDB, AWS
+							</div>
+						</div>
+						<div class="menu-item">
+							<div class="menu-item-title menu-selection-target">
+								<a href="/projects/reconstruct">Re:Construct</a>
+							</div>
+							<div class="menu-item-subtitle menu-selection-target">
+								Leadership/vision, persuasion
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="subtitle">developer, artist, leader</div>
-			<p class="description">
-				With recent bachelor's degrees from Computer Science and Music from the University of Virginia (2018), I use Java, HTML/CSS, and Javascript to build and maintain enterprise web applications facing more than 40,000 users. Shaped by my entrepreneurship experience of working with more than 100 cross-functional volunteer student designers, musicians, and strategists, I believe that the interdependent presence of functionality and design is vital to the success of any product. On top of writing reusable and well-documented code, I place importance in designing beautiful user experience that help establish meaningful connection between the user and the product.
-				<br>
-			</p>
-			<div class="backbutton"><span class="return">home</span></div>
+		</div>
+
+		<!-- Inner wrapper -->
+		<div class="page-wrapper-inner">
+			<!-- Header wrapper -->
+			<div class="header">
+				<div class="menu-container">
+					<i class="menu-icon material-icons">menu</i>
+				</div>
+				<div class="name-container">
+					<h4 class="name no-margin">
+						<a href="/">Joe Chey</a>
+					</h4>
+				</div>
+			</div>
+
+			<!-- Project -->
+			<div class="project-wrapper">
+				<div class="text-wrapper">
+					<!-- Project title -->
+					<div class="title-container">
+						<a href="/">
+							<i class="back-button material-icons">arrow_back</i>
+						</a>
+						<h3 class="title no-margin">
+							About me
+						</h3>
+						<h5 class="subtitle no-margin">
+							Programmer, self-taught UX designer
+						</h5>
+					</div>
+
+					<!-- Project contents -->
+					<div class="project-contents">
+						<h5 class="section-header no-margin">
+							Work: Java Developer
+						</h5>
+						<p class="project-description">
+							I develop and maintain web applications at George Mason University. I started out by doing backend-things in Java (MyBatis), but increasingly took on more frontend roles, designing and implementing UX/UI to fill the needs of the team.
+						</p>
+						<h5 class="section-header no-margin">
+							College: University of Virginia (‘18)
+						</h5>
+						<p class="project-description">
+							I studied Computer Science and Music as an undergrad. During this time, I also gained really valuable leadership and project management experience as the founder/president of 2 artistic groups, as well as the VP/leader of 2 multicultural groups, among others.
+						</p>
+						<h5 class="section-header no-margin">
+							Cool facts
+						</h5>
+						<p class="project-description">
+							#1: Japanese<br>
+							About 2 years after I started learning Japanese in college, <a class="content-link" href="https://eastasian.as.virginia.edu/uva-student-places-second-jlive">I entered and won 2nd place in the highest category in a national Japanese speech contest</a>, which came with a free 1-week cultural exchange trip to Japan, sponsored by the Japanese Ministry of Foreign Affairs.
+							<br><br>
+							#2: Luray Caverns<br>
+							I got to try playing <a class="content-link" href="https://en.wikipedia.org/wiki/Great_Stalacpipe_Organ">the Great Stalacpipe Organ at the Luray Caverns</a>, as a part of the film shooting in <a class="content-link" href="/projects/reconstruct">Re:Construct</a> (one of the projects listed here).
+						</p>
+					</div>
+				</div>
+
+				<!-- image gallery -->
+				<div class="gallery-wrapper-outer">
+					<div class="carousel">
+						<div class="carousel-cell">
+					  		<img src="assets/images/about/j-live-talk.jpg" alt="Me (left), before the final round of a national Japanese speech contest" class="responsive-img carousel-cell-content"/>
+						</div>
+						<div class="carousel-cell">
+					  		<img src="assets/images/kineticsound/piano.jpg" alt="Visual arts for contextualizing music without lyrics" class="responsive-img carousel-cell-content"/>
+						</div>
+					</div>
+					<div class="caption-container">
+						<span class="image-caption"></span>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
+
 	<script src="scripts/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="scripts/branch.min.js"></script>
+	<script src="scripts/main.js"></script>
+	<!-- other scripts -->
+	<script src="scripts/flickity/flickity.pkgd.min.js"></script>
+	<script src="scripts/flickity/fullscreen.js"></script>
+
 </body>
 </html>
