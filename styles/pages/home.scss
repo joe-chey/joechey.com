@@ -1,0 +1,40 @@
+/* home.scss - Landing page */
+
+.statement {
+	max-width: 466px;
+	margin-bottom: 0;
+	margin-top: 1rem;
+}
+
+.line-divider {
+	margin: 1.5rem 0;
+	width: 14vw;
+	min-width: 52px;
+	max-width: 200px;
+	border-bottom: 2px solid #555;
+}
+
+/* entry list */
+.entry-item {
+	margin: 1.5rem 0;
+}
+
+.subtitle {
+	@extend %open-sans;
+}
+
+/* media queries */
+@media screen and (min-width: $screen-sm) {
+	.entry-item {
+		margin: 2rem 0;
+	}
+
+	.statement {
+		margin-top: revert;
+	}
+
+	.line-divider {
+		margin: 2rem 0;
+	}
+
+}

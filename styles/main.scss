@@ -1,0 +1,9 @@
+/* main.scss - landing page */
+
+@import "generic/variables";
+
+@import "elements/base";
+@import "elements/gallery";
+
+@import 'pages/home';
+@import 'pages/project';

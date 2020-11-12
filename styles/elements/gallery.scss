@@ -1,0 +1,91 @@
+/* Some resets, not essencial for this example to work */
+
+input[type="radio"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+/* Base styles for this example */
+
+.gallery-wrapper-outer {
+  width: 100%;
+  text-align: center;
+  
+  @media screen and (min-width: $screen-lg) {
+    width: 50%;
+  }
+}
+
+.main-carousel {
+  background: #FAFAFA;
+}
+
+.carousel-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  margin-right: 10px;
+  background-color: rgba(20, 20, 20, 0.5);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* fade in lazy loaded image */
+.carousel-cell-image.flickity-lazyloaded,
+.carousel-cell-image.flickity-lazyerror {
+  opacity: 1;
+}
+
+.carousel.is-fullscreen .carousel-cell {
+  height: 100%;
+}
+
+.responsive-img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  
+  -webkit-transition: opacity 0.4s;
+          transition: opacity 0.4s;
+}
+
+/* For fullscreen images, display pics as-is*/
+.carousel.is-fullscreen img {
+  height: auto;
+  width: auto;
+}
+
+/* Caption for the photos */
+.caption-container {
+  text-align: center;
+  padding: 2.5rem; /* Offset the caption to avoid overlapping with the pagination indicators */
+
+  & span {
+    @extend %open-sans;    
+  }
+}
+
+/* Extend Flickity elements */
+.flickity-enabled.is-fullscreen {
+  background: rgba(20, 20, 20, 0.3);
+}
+
+.flickity-page-dots {
+  bottom: -2rem;
+}
+
+.flickity-page-dots .dot {
+  border-radius: 0;
+}
+
+.flickity-page-dots .dot.is-selected {
+  opacity: 0.7;
+}
