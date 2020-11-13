@@ -49,8 +49,11 @@ a {
 	font-family: inherit;
 	font-size: inherit;
 	text-decoration: none;
-	transition: 0.15s all ease;
-
+	transition: all 0.15s ease;
+	-webkit-transition: 0.15s all ease;
+	-moz-transition: all 0.15s ease;
+    -o-transition: all 0.15s ease;
+	
 	&:hover {
 		color: #00BD90;
 	};
@@ -90,7 +93,10 @@ a.content-link::selection {
 	height: 90%;
 	width: 90%;
 	max-width: 1500px;
-	transition: 0.2s all ease;
+	transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+	-webkit-transition: 0.2s all ease;
 }
 
 /* Navigation menu */
