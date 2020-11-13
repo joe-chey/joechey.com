@@ -119,7 +119,7 @@ a.content-link::selection {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	background-color: rgba(241, 241, 241, 0.6);
+	background-color: rgba(247, 247, 247, 0.7);
 }
 
 .nav-menu {
@@ -175,11 +175,15 @@ a.content-link::selection {
 
 /* Toggled classes */
 .blur {
+	filter: blur(4px);
 	-webkit-filter: blur(4px);
 	-moz-filter: blur(4px);
 	-o-filter: blur(4px);
 	-ms-filter: blur(4px);
-	filter: blur(4px);
+}
+
+.fade {
+	opacity: 0.5;
 }
 
 .flex {

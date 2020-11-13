@@ -1,3 +1,28 @@
+var uiController = (function () {
+	let backgroundClass = isMacOS() ? "fade" : "blur";
+
+	function isMacOS() {
+		let platform = navigator.platform.toUpperCase();
+		console.log(platform);
+		return platform.indexOf("MAC") !== -1;
+	}
+
+	function showMenu() {
+		$(".page-wrapper-inner").addClass(backgroundClass);
+		$(".nav-menu-wrapper").fadeIn(200);		
+	}
+
+	function hideMenu() {
+		$(".nav-menu-wrapper").fadeOut(200);
+		$(".page-wrapper-inner").removeClass(backgroundClass);		
+	}
+
+	return {
+		showMenu: showMenu,
+		hideMenu: hideMenu
+	}
+})();
+
 $(document).ready(function() {
 
 	var $menuIcon = $(".menu-icon");
@@ -6,48 +31,14 @@ $(document).ready(function() {
 
 	// Hide menu if clicked on anything other than the menu item
 	$(".nav-menu-wrapper").click(function(event) {
-		if (!$(event.target).hasClass("menu-selection-target")) hideMenu();
+		if (!$(event.target).hasClass("menu-selection-target")) uiController.hideMenu();
 	})
 
-	$menuIcon.on("click", function() {
-		showMenu();
+	$menuIcon.click(function() {
+		uiController.showMenu();
 	})
 
 	$closeMenuIcon.click(function() {
-		hideMenu();
+		uiController.hideMenu();
 	})
-
-	// flickity object
-	var $carousel = $(".carousel");
-
-	// add event listener to flickity to update image captions
-	$carousel.on('ready.flickity change.flickity', function(event) {
-		let flickity = $carousel.data('flickity');
-		let selectedElement = flickity ? flickity.selectedElement : $(".carousel-cell")[0];
-		setCaption(selectedElement);
-	})
-
-	// initialize Flickity
-	$carousel.flickity({
-		wrapAround: true,
-		fullscreen: true,
-		imagesLoaded: true,
-		lazyLoad: true,
-		adaptiveHeight: true,
-	});
 });
-
-function setCaption(elem) {
-	let caption = $(elem).find(".carousel-cell-content").attr("alt");
-	$(".image-caption").text(caption);
-}
-
-function showMenu() {
-	$(".page-wrapper-inner").addClass("blur");
-	$(".nav-menu-wrapper").fadeIn(200);
-}
-
-function hideMenu() {
-	$(".nav-menu-wrapper").fadeOut(200);
-	$(".page-wrapper-inner").removeClass("blur");
-}
