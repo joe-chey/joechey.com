@@ -1,4 +1,6 @@
 /* main.scss - landing page */
+// To compile this into minified CSS, run the following command in terminal:
+// sass --watch main.scss:main.css --style compressed
 
 @import "generic/variables";
 

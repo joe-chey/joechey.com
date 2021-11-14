@@ -55,13 +55,15 @@ a {
     -o-transition: all 0.15s ease;
 	
 	&:hover {
-		color: #00BD90;
+		color: rgb(34, 140, 114);
 	};
 
 	&.content-link {
-		color: #27a888;
+		border-bottom: 2px solid rgba(39, 168, 136, 0.75);
+
 		&:hover {
-			text-decoration: underline;
+			color: #000;
+			border-bottom: 4px solid rgba(39, 168, 136, 0.75);
 		};
 	}
 }
