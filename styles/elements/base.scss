@@ -105,6 +105,7 @@ a.content-link::selection {
 .nav-menu-wrapper {
 	display: none;
 	position: fixed;
+	overflow-y: scroll;
 	width: 100vw;
 	height: 100vh;
 	left: 0;
@@ -182,10 +183,12 @@ a.content-link::selection {
 	-moz-filter: blur(4px);
 	-o-filter: blur(4px);
 	-ms-filter: blur(4px);
+	overflow-y: hidden;
 }
 
 .fade {
 	opacity: 0.5;
+	overflow-y: hidden;
 }
 
 .flex {
